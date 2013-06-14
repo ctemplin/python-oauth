@@ -146,6 +146,14 @@ class OAuthToken(object):
             token.callback_confirmed = params['oauth_callback_confirmed'][0]
         except KeyError:
             pass # 1.0, no callback confirmed.
+        try:
+            token.user_id = params['user_id'][0]
+        except KeyError:
+            pass
+        try:
+            token.screen_name = params['screen_name'][0]
+        except KeyError:
+            pass    
         return token
     from_string = staticmethod(from_string)
 
